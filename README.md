@@ -13,7 +13,7 @@
   (поведение не должно отличаться от `std::set`)
 
 В `persistent_set.h` указана требуемая вычислительная сложность и гарантии исключений для каждой функции, кроме
-`set::begin`, `set::end`, `set::iterator::operator++` и
+`persistent_set::begin`, `persistent_set::end`, `persistent_set::iterator::operator++` и
 `persistent_set::iterator::operator--`. Для них требуется, чтобы отдельно каждая из функций работала не больше чем
 за `O(h)`.
 
