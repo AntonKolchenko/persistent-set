@@ -6,7 +6,7 @@ template <typename T>
 struct persistent_set {
 public:
   struct iterator;
-  // we don't require an iterator here to make task easier
+  // we don't require const iterator here to make task easier
   using reverse_iterator = std::reverse_iterator<iterator>;
 
   persistent_set() noexcept;                            // O(1) nothrow
