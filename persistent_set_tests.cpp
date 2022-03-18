@@ -490,31 +490,6 @@ TEST(correctness, swap_empty_self) {
   swap(c1, c1);
 }
 
-TEST(correctness, swap_iterator_validity) {
-  element::no_new_instances_guard g;
-
-  container c1, c2;
-  mass_insert(c1, {1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
-  c2.insert(11);
-
-  container::iterator c1_begin = c1.begin();
-  // container::iterator c1_end = c1.end();
-
-  container::iterator c2_begin = c2.begin();
-  // container::iterator c2_end = c2.end();
-
-  swap(c1, c2);
-
-  EXPECT_EQ(1, *c1_begin++);
-  EXPECT_EQ(2, *c1_begin++);
-  EXPECT_EQ(3, *c1_begin++);
-  std::advance(c1_begin, 7);
-  // EXPECT_EQ(c1_end, c1_begin);
-
-  EXPECT_EQ(11, *c2_begin++);
-  // EXPECT_EQ(c2_end, c2_begin);
-}
-
 TEST(correctness, swap_1) {
   element::no_new_instances_guard g;
 
