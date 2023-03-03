@@ -7,7 +7,7 @@ find_package(GTest REQUIRED)
 
 add_executable(tests tests.cpp
         test-helpers/element.cpp
-        test-helpers/fault_injection.cpp))
+        test-helpers/fault_injection.cpp)
 
 if (NOT MSVC)
     target_compile_options(tests PRIVATE -Wall -Wextra -Wshadow=compatible-local -Wno-sign-compare -pedantic)
