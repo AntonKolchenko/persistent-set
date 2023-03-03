@@ -6,7 +6,7 @@
 set -euo pipefail
 IFS=$' \t\n'
 
-if git show-ref --verify --quiet refs/heads/feedback; then
+if git remote | grep --quiet upstream; then
     echo "init-repo.sh was already done on this repository."
     exit 1
 fi

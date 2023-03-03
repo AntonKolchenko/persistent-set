@@ -14,9 +14,8 @@ public:
   persistent_set(persistent_set&& other);      // O(1) nothrow
 
   persistent_set&
-  operator=(persistent_set const& other); // O(this.size()) nothrow
-  persistent_set&
-  operator=(persistent_set&& other); // O(this.size()) nothrow
+  operator=(persistent_set const& other);            // O(this.size()) nothrow
+  persistent_set& operator=(persistent_set&& other); // O(this.size()) nothrow
 
   ~persistent_set(); // O(n) nothrow
 
@@ -32,9 +31,9 @@ public:
 
   std::pair<iterator, bool> insert(T const&); // O(h) strong
   iterator erase(iterator);                   // O(h) strong
-  iterator find(T const&);           // O(h) nothrow
-  iterator lower_bound(T const&);    // O(h) nothrow
-  iterator upper_bound(T const&);    // O(h) nothrow
+  iterator find(T const&);                    // O(h) nothrow
+  iterator lower_bound(T const&);             // O(h) nothrow
+  iterator upper_bound(T const&);             // O(h) nothrow
 
   void swap(persistent_set& other); // O(1) nothrow
 };
