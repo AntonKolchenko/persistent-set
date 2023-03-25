@@ -8,20 +8,17 @@ private:
   struct node {
     node() = default;
 
-    explicit node(T const& value) {
-      this->value = std::make_shared<T>(value);
-    }
+    explicit node(T const& value)
+      : value(std::make_shared<T>(value))
+    {}
 
-    node(T&& value) {
-      this->value = std::make_shared<T>(std::move(value));
-    }
+    node(T&& value)
+      : value(std::make_shared<T>(std::move(value)))
+    {}
 
-    node(node const& other)
-        : value(other.value), left(other.left), right(other.right) {}
+    node(node const& other) = default;
 
-    node(node&& other)
-        : value(std::move(other.value)), left(std::move(other.left)),
-          right(std::move(other.right)) {}
+    node(node&& other) = default;
 
     node& operator=(node const& other) {
       if (this != &other) {
@@ -49,9 +46,10 @@ private:
     }
 
     void swap(node& other) {
-      std::swap(value, other.value);
-      std::swap(left, other.left);
-      std::swap(right, other.right);
+      using std::swap;
+      swap(value, other.value);
+      swap(left, other.left);
+      swap(right, other.right);
     }
 
     std::shared_ptr<T> value;
@@ -263,8 +261,9 @@ public:
 
 private:
   void swap(persistent_set& other) {
-    std::swap(this->m_size, other.m_size);
-    std::swap(this->m_root, other.m_root);
+    using std::swap;
+    swap(this->m_size, other.m_size);
+    swap(this->m_root, other.m_root);
   }
 
   iterator rev_upper_bound(T* value) {
