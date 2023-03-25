@@ -8,13 +8,9 @@ private:
   struct node {
     node() = default;
 
-    explicit node(T const& value)
-      : value(std::make_shared<T>(value))
-    {}
+    explicit node(T const& value) : value(std::make_shared<T>(value)) {}
 
-    node(T&& value)
-      : value(std::make_shared<T>(std::move(value)))
-    {}
+    node(T&& value) : value(std::make_shared<T>(std::move(value))) {}
 
     node(node const& other) = default;
 
